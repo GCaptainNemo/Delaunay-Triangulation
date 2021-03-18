@@ -17,23 +17,27 @@
 
 先定义Delaunay边：假设E中的一条边e，若e满足**存在**一个圆经过e的两个端点，**圆内**不含点集V中任何其他的点，这一特性又称为**空圆特性**。
 
-定义Delaunay三角剖分：如果点集V的一个三角剖分T的边集E只包含Delaunay边，则称该三角剖分为Delaunay三角剖分。
+定义Delaunay三角剖分：如果点集V的三角剖分T的边集E的任意元素都是Delaunay边，则称该三角剖分为Delaunay三角剖分。
 
 ### 2.3 Delaunay三角剖分属性
-Delaunay三角剖分与Voronoi图是对偶关系，它们之间的性质也有所联系。
+Delaunay三角剖分与Voronoi图互为对偶图，有一一对应关系。Voronoi图由多个Voronoi多边形组成，且每个Voronoi多边形只包含一个节点，节点和Voronoi多边形有一一对应关系。某节点对应Voronoi多边形由每个相邻节点的垂直平分线所形成的开式半平面的交集组成，
+因此区域必为凸多边形(下图左)。Voronoi图的一个顶点属于三个Voronoi多边形，连接三个共点的Voronoi多边形分别对应的三个节点即Delaunay三角剖分(下图右)。
+
+![Delaunay-Voronoi](resources/delaunay_voronoi.jfif)
+
+Delaunay三角剖分具有以下性质：
 
 1. 空圆性(Empty Circle)：
 
-    a. Delaunay剖分中任何一张三角面的外接圆是空的，即不存在四点共圆或者三角面片三点外接圆内部有其它点的情况。 
+    a. DT任何一张三角面的外接圆是空的，即三角面片外接圆**内部**没有其它点。 
     
     ![empty-circla](resources/empty_circle_a.jpg)
     
-    b. 在Delaunay三角剖分中，每一条边都存在一个空圆以它为弦(Delaunay边的定义)。
+    b. 在Delaunay三角剖分中，每一条边都**存在**一个空圆以它为弦。
     
     ![empty-circla](resources/empty_circle_b.jpg)
     
-    a和b都是空圆性的体现。**注意**：左图是Delaunay三角剖分，右图是对偶图Voronoi图，Voronoi图将区域划分成每个**只包含一个节点**(可以不封闭)，
-    且每个区域的点距离该区域顶点最近(垂直平分线连成区域)。
+    a和b都是空圆性的体现。
     
 2. 最近邻性:任何一条连接于最近邻之间的边都会被Delaunay剖分采用(是Delaunay边)，因为存在一个以该边为直径的空圆，如下图所示。
 
