@@ -12,13 +12,31 @@
 所谓凸包(convex hull)，就是所有包含点集V的凸集的交，或者形象地说包含点集V的“最小凸多边形”。
 
 ### 2.2 Delaunay三角剖分定义
-Delaunay三角剖分是最常用的三角剖分。
+Delaunay三角剖分(Delaunay triangulation, 简称DT)是最常用的三角剖分。
 
-先定义Delaunay边：假设E中的一条边e，若e满足**存在**一个圆经过e的两个端点，**圆内**不含点集V中任何其他的点(圆上最多三点共圆)，这一特性又称为**空圆特性**。
+先定义Delaunay边：假设E中的一条边e，若e满足**存在**一个圆经过e的两个端点，**圆内**不含点集V中任何其他的点，这一特性又称为**空圆特性**。
 
 定义Delaunay三角剖分：如果点集V的一个三角剖分T的边集E只包含Delaunay边，则称该三角剖分为Delaunay三角剖分。
 
+### 2.3 Delaunay三角剖分属性
+Delaunay三角剖分与Voronoi图是对偶关系，它们之间的性质也有所联系。
+1. 空圆性(Empty Circle)：
 
+    a. Delaunay剖分中任何一张三角面的外接圆是空的，即不存在四点共圆或者三角面片三点外接圆内部有其它点的情况。 
+    
+    ![empty-circla](resources/empty_circle_a.jpg)
+    
+    b. 在Delaunay三角剖分中，每一条边都存在一个空圆以它为弦(Delaunay边的定义)。
+    
+    ![empty-circla](resources/empty_circle_b.jpg)
+    
+    a和b都是空圆性的体现。
+
+2. 最近邻性:任何一条连接于最近邻之间的边都会被Delaunay剖分采用(是Delaunay边)，因为存在一个以该边为直径的空圆，如下图所示。
+
+    ![nearest-neighbour](resources/1nn.jpg)
+
+    按照最近邻关系生成的图又称为最近邻图(Nearest Neighbour Graph, NNG)，它是Delaunay剖分的一个**子图**。NNG是一个有向图，最近邻关系不对等。
 
 ## 五、参考资料
 [1][百度百科-凸包](https://baike.baidu.com/item/%E5%87%B8%E5%8C%85)
