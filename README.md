@@ -5,17 +5,18 @@
 
 ## 二、原理
 ### 2.1 三角剖分定义
-假设V是有限点集，e为由点集V中的点作为端点构成的封闭线段，E为e的集合。点集V的三角剖分T = (V, E)就是一张**图**，该图满足条件：
+假设V是有限点集，e为由点集V中的点作为端点构成的封闭线段，E为e的集合。点集V的三角剖分T = (V, E)就是一张图，该图满足条件：
 1. 没有相交边
 2. 图中所有的面都是三角面，且所有三角面的合集是点集V的凸包(convex hull)。
 
-所谓凸包(convex hull)，就是所有包含点集V的凸集的交，或者形象地说包含点集V的“最小凸多边形”。
+所谓凸包(convex hull)，就是包含点集V的最小凸多边形P，满足点集V的所有点均在P的边界上或P的内部，用CH(V)表示点集V的凸包。直观地讲，可以把V中每个点当成露在一块板外的铁钉，
+那么凸包就是包围了所有铁钉的一条拉紧了的绳子构成的形状，CH(Q)中每个顶点都是Q中的点。常用的寻找点集凸包的算法有Gramham扫描法和Jarvis步进法。
 
 ### 2.2 Delaunay三角剖分定义
 由三角剖分的定义可以看出，点集的三角剖分并不唯一，需要提出额外评价三角剖分好坏的标准。Delaunay三角剖分(Delaunay triangulation, 简称DT)是最常用的三角剖分，
 因为它可以避免“尖锐和细长”的三角面片(最大化最小角)。“尖锐和细长”的三角面片在渲染的时候会造成“突变”的视觉效果，在有限元计算时容易因为极端值产生精度损失。下面给出Delaunay三角剖分的定义：
 
-先定义Delaunay边：假设E中的一条边e，若e满足**存在**一个圆经过e的两个端点，**圆内**不含点集V中任何其他的点，这一特性又称为**空圆特性**。
+先定义Delaunay边：假设E中的一条边e，若e满足存在一个圆经过e的两个端点，**圆内**不含点集V中任何其他的点，这一特性又称为**空圆特性**。
 
 定义Delaunay三角剖分：如果点集V的三角剖分T的边集E的任意元素都是Delaunay边，则称该三角剖分为Delaunay三角剖分。
 
@@ -33,7 +34,7 @@ Delaunay三角剖分具有以下性质：
     
     ![empty-circla](resources/empty_circle_a.jpg)
     
-    b. 在Delaunay三角剖分中，每一条边都**存在**一个空圆以它为弦。
+    b. 在Delaunay三角剖分中，每一条边都存在一个空圆以它为弦。
     
     ![empty-circla](resources/empty_circle_b.jpg)
     
@@ -67,17 +68,20 @@ Delaunay三角剖分具有以下性质：
 算法step-2的图示为：
 
 ![Insert](resources/insert.jpg)
-
+                                            
 算法step-3的图示为：
-
+  
 ![Insert](resources/update.jpg)
 
+## 四、效果
 
+### 1. Graham扫描法寻找点集凸包(IRIS 数据集)
+
+![graham-scan](results/graham_scan.png)
 
 
 ## 五、参考资料
-[1][百度百科-凸包](https://baike.baidu.com/item/%E5%87%B8%E5%8C%85)
 
-[2][百度百科-Delaunay三角剖分](https://baike.baidu.com/item/Delaunay%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86%E7%AE%97%E6%B3%95/3779918)
+[1][百度百科-Delaunay三角剖分](https://baike.baidu.com/item/Delaunay%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86%E7%AE%97%E6%B3%95/3779918)
 
-[3][https://github.com/lengjiayi/Delaunay-Mesh](https://github.com/lengjiayi/Delaunay-Mesh)
+[2][https://github.com/lengjiayi/Delaunay-Mesh](https://github.com/lengjiayi/Delaunay-Mesh)
