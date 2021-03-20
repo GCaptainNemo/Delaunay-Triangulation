@@ -82,8 +82,14 @@ Delaunay三角剖分具有以下性质：
 
 ![Delaunay-triangulation](results/delaunay_triangulation.png)
 
-## 五、参考资料
+## 五、总结
+Delaunay三角剖分在三维重建有很多应用，比如常用的点云网格化算法——[点云贪婪投影三角化](docs/greedy_projection_triangulation.md)。
+
+
+## 六、参考资料
 
 [1][百度百科-Delaunay三角剖分](https://baike.baidu.com/item/Delaunay%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86%E7%AE%97%E6%B3%95/3779918)
 
 [2][https://github.com/lengjiayi/Delaunay-Mesh](https://github.com/lengjiayi/Delaunay-Mesh)
+
+[3][Scipy-Delaunay-triangulation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Delaunay.html)
