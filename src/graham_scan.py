@@ -41,14 +41,9 @@ class GrahamScan:
         stack = []
         stack.append(data_lst.pop(index))
         origin_point = stack[0]
-        # function = lambda x: (np.array([x]) - np.array([origin_point])) @ \
-        #                       np.array([[1, 0]]).T / np.linalg.norm(np.array([x]) -
-        #                                               np.array([origin_point]))
-        # data_lst.sort(key=function)
         data_lst = self.sort_polar_angle_cos(data_lst, origin_point)
         stack.append(data_lst[0])
         stack.append(data_lst[1])
-        # print(data_lst)
         for i in range(2, len(data_lst)):
             next_top = np.array([stack[- 2]])
             top = np.array([stack[-1]])

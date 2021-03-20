@@ -46,15 +46,14 @@ Delaunay三角剖分具有以下性质：
 
     按照最近邻关系生成的图又称为最近邻图(Nearest Neighbour Graph, NNG)，它是Delaunay剖分的一个**子图**。NNG是一个有向图，最近邻关系不对等。
 
-3. 唯一性：不论从区域何处开始构建，最终都将得到一致的结果。
+3. 唯一性：若不存在四点共圆、共线的情况。不论从区域何处开始构建，最终都将得到一致的结果。
 
 4. 最大化最小角特性：在散点集可能形成的三角剖分中，Delaunay三角剖分所形成的三角形的最小角最大。从这个意义上讲，Delaunay三角网是“最接近于规则化的“的三角网。
 
 5. 区域性：新增、删除、移动某一个顶点时只会影响临近的三角形。
 
-6. 具有凸多边形的外壳：三角网最外层的边界形成一个凸多边形的外壳。
+6. 凸多边形的外壳：三角网最外层的边界形成一个凸多边形的外壳。
 
-7. 复杂度：在二维平面中，每增加一个点三角形数目增加2，边数增加3。在d维空间中，结论是2<sup>d</sup>和3<sup>d</sup>。
 
 ## 三、Bowyer-Watson算法
 这里介绍目前主流进行DT的算法——Bowyer-Watson算法。Bowyer-Watson算法是逐点插入算法：
@@ -79,6 +78,9 @@ Delaunay三角剖分具有以下性质：
 
 ![graham-scan](results/graham_scan.png)
 
+### 2. sklearn自带的Delaunay triangulation(IRIS数据集)
+
+![Delaunay-triangulation](results/delaunay_triangulation.png)
 
 ## 五、参考资料
 
