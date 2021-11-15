@@ -24,7 +24,7 @@
 Delaunay三角剖分与Voronoi图互为对偶图，有一一对应关系。Voronoi图由多个Voronoi多边形组成，且每个Voronoi多边形只包含一个节点，节点和Voronoi多边形有一一对应关系。某节点对应Voronoi多边形由每个相邻节点的垂直平分线所形成的开式半平面的交集组成，
 因此区域必为凸多边形(下图左)。Voronoi图的一个顶点属于三个Voronoi多边形，连接三个共点的Voronoi多边形分别对应的三个节点即Delaunay三角剖分(下图右)。
 
-![Delaunay-Voronoi](resources/delaunay_voronoi.jfif)
+<p align="center"><img src=resources/delaunay_voronoi.jfif width=50%></p>
 
 Delaunay三角剖分具有以下性质：
 
@@ -32,18 +32,18 @@ Delaunay三角剖分具有以下性质：
 
     a. DT任何一张三角面的外接圆是空的，即三角面片外接圆**内部**没有其它点。 
     
-    ![empty-circla](resources/empty_circle_a.jpg)
+    <p align="center"><img src=resources/empty_circle_a.jpg width=50%></p>
     
     b. 在Delaunay三角剖分中，每一条边都存在一个空圆以它为弦。
     
-    ![empty-circla](resources/empty_circle_b.jpg)
+    <p align="center"><img src=resources/empty_circle_b.jpg width=50%></p>
     
     a和b都是空圆性的体现。
     
 2. 最近邻性:任何一条连接于最近邻之间的边都会被Delaunay剖分采用(是Delaunay边)，因为存在一个以该边为直径的空圆，如下图所示。
 
-    ![nearest-neighbour](resources/1nn.jpg)
-
+    <p align="center"><img src=resources/1nn.jpg width=50%></p>
+    
     按照最近邻关系生成的图又称为最近邻图(Nearest Neighbour Graph, NNG)，它是Delaunay剖分的一个**子图**。NNG是一个有向图，最近邻关系不对等。
 
 3. 唯一性：若不存在四点共圆、共线的情况。不论从区域何处开始构建，最终都将得到一致的结果。
@@ -66,21 +66,21 @@ Delaunay三角剖分具有以下性质：
 ```
 算法step-2的图示为：
 
-![Insert](resources/insert.jpg)
+<p align="center"><img src=resources/insert.jpg width=50%></p>
                                             
 算法step-3的图示为：
   
-![Insert](resources/update.jpg)
+<p align="center"><img src=resources/update.jpg width=50%></p>
 
 ## 四、效果
 
 ### 1. Graham扫描法寻找点集凸包(IRIS 数据集)
 
-![graham-scan](results/graham_scan.png)
+<p align="center"><img src=results/graham_scan.png width=50%></p>
 
 ### 2. sklearn自带的Delaunay triangulation(IRIS数据集)
 
-![Delaunay-triangulation](results/delaunay_triangulation.png)
+<p align="center"><img src=results/delaunay_triangulation.png width=50%></p>
 
 ## 五、总结
 Delaunay三角剖分在三维重建有很多应用，比如常用的点云网格化算法——[点云贪婪投影三角化](docs/greedy_projection_triangulation.md)。
